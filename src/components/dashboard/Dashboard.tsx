@@ -60,7 +60,24 @@ function monthSeries(invoices: Invoice[], products: Product[], selectedYear = ne
     const revenue = rows.reduce((sum, invoice) => sum + calc(invoice).grand, 0);
     const pending = rows.filter((invoice) => invoice.paymentStatus === 'Pending').reduce((sum, invoice) => sum + calc(invoice).grand, 0);
     const successful = rows.filter((invoice) => invoice.paymentStatus === 'Successful').reduce((sum, invoice) => sum + calc(invoice).grand, 0);
-    const profit = rows.reduce((sum, invoice) => sum + invoice.items.reduce((itemSum, item) => { const cost = costMap.get(item.productId); return itemSum + (typeof cost === 'number' && Number.isFinite(cost) ? (item.rate - cost) * Math.max(0, item.quantity) : 0); }, 0), 0);
+    // const profit = rows.reduce((sum, invoice) => sum + invoice.items.reduce((itemSum, item) => { const cost:any= costMap.get(item.productId); return itemSum + (typeof cost === 'number' && Number.isFinite(cost) ? (item.rate - cost) * Math.max(0, item.quantity) : 0); }, 0), 0);
+  const profit = rows.reduce(
+  (sum, invoice) =>
+    sum +
+    invoice.items.reduce((itemSum, item:any) => {
+      const cost = costMap.get(item.productId);
+
+      if (cost === undefined || !Number.isFinite(cost)) {
+        return itemSum;
+      }
+
+      return (
+        itemSum +
+        (item.rate - cost) * Math.max(0, item.quantity)
+      );
+    }, 0),
+  0
+);
     return { label: date.toLocaleDateString('en-IN', { month: 'short' }), revenue, pending, successful, profit };
   });
 }
