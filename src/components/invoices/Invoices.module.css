@@ -1,0 +1,23 @@
+.page { max-width: 1420px; margin: auto; padding: 30px; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .14em; color: #66818c; margin: 0 0 7px; }
+.page-title { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+.page-title h1 { margin: 0; }
+.page-title p { color: #6f7b84; font-size: 13px; }
+.primary { border: 0; background: #0f2633; color: #fff; border-radius: 7px; padding: 10px 15px; font-weight: 800; }
+.toolbar { margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.toolbar input, .toolbar select { width: 100%; max-width: 400px; border: 1px solid #d6dee3; border-radius: 6px; padding: 8px 9px; background: #fff; outline: none; }
+.table-card { background: #fff; border: 1px solid #dde3e7; border-radius: 12px; overflow: auto; }
+.table-card table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table-card th, .table-card td { padding: 11px; border-bottom: 1px solid #edf0f2; text-align: left; white-space: nowrap; }
+.table-card th { font-size: 10px; text-transform: uppercase; color: #6b7881; background: #f8fafb; }
+.table-card button { border: 0; background: #e9eef1; padding: 6px 9px; border-radius: 5px; margin-right: 5px; }
+.table-action { margin-right: 5px !important; }
+.danger { border: 0; background: #fff0f0 !important; color: #b42318; border-radius: 5px; padding: 6px 9px; }
+.status { background: #edf5f1; color: #276349; border-radius: 20px; padding: 4px 8px; font-size: 10px; }
+.pending { background: #fff2df; color: #9a5b00; }
+.successful { background: #e9f8ef; color: #18794e; }
+.empty { background: #fff; border: 1px dashed #c8d0d8; border-radius: 10px; padding: 40px; text-align: center; color: #6b7780; }
+@media (max-width: 1100px) { .page { padding: 20px; } }
+
+@media print { .page { display: none !important; } }
+.toolbar{grid-template-columns:minmax(220px,2fr) repeat(4,minmax(115px,1fr));padding:12px;border-radius:18px;box-shadow:0 10px 28px rgba(25,42,52,.04)}.toolbar input,.toolbar select{height:40px;border-radius:11px;background:#fbfcfc}.table-card{border-radius:21px;box-shadow:0 12px 36px rgba(25,42,52,.045)} .table-card tbody tr{transition:background .15s}.table-action{border-radius:9px}

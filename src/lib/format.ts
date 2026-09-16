@@ -1,0 +1,7 @@
+export const money = (n:number) => new Intl.NumberFormat('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}).format(Number.isFinite(n)?n:0);
+const ones=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+const tens=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+function under100(n:number){return n<20?ones[n]:tens[Math.floor(n/10)]+(n%10?' '+ones[n%10]:'')}
+function words(n:number):string{n=Math.floor(n);if(n===0)return 'Zero';if(n<100)return under100(n);if(n<1000)return ones[Math.floor(n/100)]+' Hundred'+(n%100?' '+under100(n%100):'');if(n<100000)return words(Math.floor(n/1000))+' Thousand'+(n%1000?' '+words(n%1000):'');if(n<10000000)return words(Math.floor(n/100000))+' Lakh'+(n%100000?' '+words(n%100000):'');return words(Math.floor(n/10000000))+' Crore'+(n%10000000?' '+words(n%10000000):'')}
+export const amountInWords=(n:number)=>`INR ${words(Math.round(n))} Only`;
+export const dateDisplay=(v:string)=>v?new Intl.DateTimeFormat('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(`${v}T00:00:00`)):'';

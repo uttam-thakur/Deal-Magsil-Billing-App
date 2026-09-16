@@ -1,0 +1,6 @@
+.page { min-height: 44vh; display: grid; place-items: center; align-content: center; gap: 9px; color: #6b7780; }
+.overlay { position: fixed; top: 14px; right: 14px; z-index: 9999; display: inline-flex; align-items: center; gap: 9px; min-height: 40px; padding: 8px 12px 8px 9px; border: 1px solid rgba(23,35,43,.08); border-radius: 999px; background: rgba(255,255,255,.88); box-shadow: 0 10px 30px rgba(23,35,43,.12); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); pointer-events: none; }
+.spinner { width: 18px; height: 18px; flex: 0 0 18px; border: 2px solid rgba(23,35,43,.12); border-top-color: #17232b; border-radius: 50%; animation: spin .72s linear infinite; }
+.label { font-size: 11px; line-height: 1; font-weight: 650; letter-spacing: .01em; color: #5f6b73; white-space: nowrap; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.4s; } }

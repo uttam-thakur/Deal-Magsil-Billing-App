@@ -1,0 +1,47 @@
+.invoice { width: 190mm; min-height: 277mm; background: #fff; color: #111; font-family: Arial,Helvetica,sans-serif; font-size: 9.5px; border: 1px solid #111; }
+.invoice-top { height: 13mm; border-bottom: 1px solid #111; text-align: center; position: relative; padding-top: 5px; font-size: 14px; }
+.invoice-top span { position: absolute; right: 5px; bottom: 4px; font-size: 9px; font-weight: normal; }
+.invoice-head { display: grid; grid-template-columns: 43% 57%; min-height: 73mm; }
+.seller { border-right: 1px solid #111; padding: 4px; line-height: 1.35; }
+.seller-brand { font-size: 16px; font-weight: 900; letter-spacing: 1px; }
+.seller hr { border: 0; border-top: 1px solid #111; margin: 4px 0; }
+.party-print { margin-top: 2px; }
+.meta { display: grid; grid-template-columns: 1fr 1fr; }
+.meta-row { display: flex; flex-direction: column; justify-content: center; gap: 2px; border-bottom: 1px solid #111; border-left: 0; min-height: 10mm; padding: 4px 6px; }
+.meta-row:nth-child(odd) { border-right: 1px solid #111; }
+.meta-row span { display: block !important; font-size: 8px !important; font-weight: 700 !important; white-space: normal; line-height: 1.1; }
+.meta-row b { display: block !important; min-height: 12px !important; line-height: 1.25 !important; word-break: break-word; font-size: 9px !important; margin-top: 2px; }
+.meta-row.large { grid-column: 1 / -1; display: flex; flex-direction: column; justify-content: center; min-height: 14mm; }
+.invoice-table { width: 100%; border-collapse: collapse; }
+.invoice-table th, .invoice-table td { border: 1px solid #111; padding: 3px; text-align: right; vertical-align: top; }
+.invoice-table th:nth-child(2), .invoice-table td:nth-child(2) { text-align: left; }
+.invoice-table th { font-size: 8px; }
+.invoice-table td { height: 5mm; }
+.invoice-table .spacer td { height: 30mm; }
+.invoice-table .right { text-align: right; }
+.invoice-table .grand td { font-weight: 900; }
+.invoice-bottom { display: grid; grid-template-columns: 55% 45%; min-height: 30mm; }
+.invoice-bottom > div { border: 1px solid #111; border-top: 0; padding: 5px; }
+.invoice-terms { border: 1px solid #111; border-top: 0; padding: 5px 7px; font-size: 8.5px; line-height: 1.35; min-height: 12mm; }
+.invoice-terms ul { margin: 3px 0 0; padding-left: 18px; }
+.invoice-terms li { margin: 1px 0; }
+.declaration { display: grid; grid-template-columns: 65% 35%; min-height: 27mm; }
+.declaration > div { border: 1px solid #111; border-top: 0; padding: 5px; }
+.declaration .sign { text-align: right; }
+.stamp-image { display: block; width: 75px; height: 55px; object-fit: contain; margin: 3px auto 0; }
+.stamp-placeholder { width: 75px; height: 55px; border: 1px dashed #777; display: grid; place-items: center; margin: 3px auto 0; font-size: 7px; color: #666; text-transform: uppercase; }
+.footer { text-align: center; border: 1px solid #111; border-top: 0; padding: 4px; font-size: 8px; }
+@media print {
+  .invoice { font-size: 9px; min-height: 277mm; overflow: hidden; }
+  .invoice-top { height: 11mm; padding-top: 4px; }
+  .invoice-head { min-height: 69mm; }
+  .meta-row { min-height: 8.2mm; padding: 3px 5px; }
+  .meta-row.large { min-height: 11mm; }
+  .invoice-table .spacer td { height: 30mm; }
+  .invoice-bottom { min-height: 27mm; }
+  .invoice-terms { min-height: 11mm; }
+  .declaration { min-height: 24mm; }
+  .stamp-image, .stamp-placeholder { width: 70px; height: 50px; }
+}
+@media (max-width: 900px) { .meta { grid-template-columns: 1fr 1fr; } }
+.grand{font-weight:900;font-size:15px}.spacer{flex:1}

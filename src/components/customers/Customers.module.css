@@ -1,0 +1,26 @@
+.page { max-width: 1420px; margin: auto; padding: 30px; }
+.page-title { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+.page-title h1 { margin: 0; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .14em; color: #66818c; margin: 0 0 7px; }
+.panel, .customer-card { background: #fff; border: 1px solid #dde3e7; border-radius: 12px; }
+.customer-form { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 90px; gap: 8px; padding: 14px; margin-bottom: 14px; align-items: end; }
+.customer-form .field { margin: 0; }
+.field { display: flex; flex-direction: column; gap: 5px; margin: 9px 0; }
+.field span { font-size: 10px; font-weight: 800; color: #63717b; text-transform: uppercase; letter-spacing: .03em; }
+.field input, .field textarea, .field select { width: 100%; border: 1px solid #d6dee3; border-radius: 6px; padding: 8px 9px; background: #fff; outline: none; }
+.field textarea { min-height: 60px; resize: vertical; }
+.full { grid-column: 1 / -1; }
+.primary { border: 0; background: #0f2633; color: #fff; border-radius: 7px; padding: 10px 15px; font-weight: 800; }
+.primary:disabled { opacity: .55; cursor: not-allowed; }
+.danger { border: 0; background: #fff0f0; color: #b42318; border-radius: 5px; padding: 6px 9px; }
+.customer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.customer-card { padding: 15px; display: grid; gap: 6px; }
+.customer-card span, .customer-card small { color: #71808a; font-size: 11px; }
+.customer-card button { margin-top: 7px; margin-right: 5px; }
+.empty { background: #fff; border: 1px dashed #c8d0d8; border-radius: 10px; padding: 40px; text-align: center; color: #6b7780; }
+.pagination { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid #edf0f2; font-size: 12px; color: #6b7785; }
+.pagination button { padding: 7px 11px; border: 1px solid #d7dfe7; border-radius: 6px; background: #fff; }
+.pagination button:disabled { opacity: .45; cursor: not-allowed; }
+@media (max-width: 1100px) { .customer-grid { grid-template-columns: 1fr; } .customer-form { grid-template-columns: 1fr 1fr; } }
+
+@media print { .page { display: none !important; } }

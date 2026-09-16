@@ -1,0 +1,12 @@
+.bill-preview-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(9,20,27,.72); display: flex; flex-direction: column; }
+.bill-preview-toolbar { flex: 0 0 auto; background: #0f2633; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; box-shadow: 0 3px 18px rgba(0,0,0,.25); }
+.bill-preview-toolbar > div:first-child { display: flex; align-items: baseline; gap: 12px; }
+.bill-preview-toolbar span { font-size: 11px; color: #b9cbd2; }
+.bill-preview-actions { display: flex; gap: 8px; }
+.bill-preview-actions button { border: 0; border-radius: 7px; padding: 9px 13px; background: #e8eef1; color: #18313d; font-weight: 800; }
+.bill-preview-actions .primary { background: #fff; color: #0f2633; }
+.primary { border: 0; border-radius: 7px; padding: 9px 13px; background: #fff; color: #0f2633; font-weight: 800; }
+.bill-preview-scroll { flex: 1; overflow: auto; padding: 24px; }
+.bill-preview-paper { width: 190mm; min-height: 277mm; margin: 0 auto; background: #fff; box-shadow: 0 10px 35px rgba(0,0,0,.28); }
+.bill-preview-paper .invoice { border: 1px solid #111; }
+@media (max-width: 900px) { .bill-preview-scroll { padding: 10px; } .bill-preview-paper { transform-origin: top left; width: 190mm; } .bill-preview-toolbar { align-items: flex-start; } .bill-preview-actions { flex-wrap: wrap; justify-content: flex-end; } }

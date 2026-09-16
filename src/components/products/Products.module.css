@@ -1,0 +1,26 @@
+.page { max-width: 1420px; margin: auto; padding: 30px; }
+.page-title { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+.page-title h1 { margin: 0; }
+.page-title p { color: #6f7b84; font-size: 13px; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .14em; color: #66818c; margin: 0 0 7px; }
+.primary { border: 0; background: #0f2633; color: #fff; border-radius: 7px; padding: 10px 15px; font-weight: 800; }
+.primary:disabled { opacity: .55; cursor: not-allowed; }
+.panel, .table-card { background: #fff; border: 1px solid #dde3e7; border-radius: 12px; }
+.product-add { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr auto; gap: 8px; padding: 14px; margin-bottom: 14px; align-items: end; }
+.product-add .field { margin: 0; }
+.field { display: flex; flex-direction: column; gap: 5px; margin: 9px 0; }
+.field span { font-size: 10px; font-weight: 800; color: #63717b; text-transform: uppercase; letter-spacing: .03em; }
+.field input, .field textarea, .field select { width: 100%; border: 1px solid #d6dee3; border-radius: 6px; padding: 8px 9px; background: #fff; outline: none; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: #5f8391; }
+.table-card { overflow: auto; }
+.table-card table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table-card th, .table-card td { padding: 11px; border-bottom: 1px solid #edf0f2; text-align: left; white-space: nowrap; }
+.table-card th { font-size: 10px; text-transform: uppercase; color: #6b7881; background: #f8fafb; }
+.table-card button { border: 0; background: #e9eef1; padding: 6px 9px; border-radius: 5px; margin-right: 5px; }
+.danger { border: 0; background: #fff0f0 !important; color: #b42318; border-radius: 5px; padding: 6px 9px; }
+.pagination { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid #edf0f2; font-size: 12px; color: #6b7785; }
+.pagination button { padding: 7px 11px; border: 1px solid #d7dfe7; border-radius: 6px; background: #fff; }
+.pagination button:disabled { opacity: .45; cursor: not-allowed; }
+@media (max-width: 1100px) { .product-add { grid-template-columns: 1fr 1fr; } }
+
+@media print { .page { display: none !important; } }

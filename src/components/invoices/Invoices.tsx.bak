@@ -1,0 +1,94 @@
+'use client';
+import * as React from 'react';
+import { dateDisplay, money } from '@/lib/format';
+import { calc } from '@/lib/billing';
+import { Invoice } from '@/types';
+
+type StatusFilter = 'all' | 'pending' | 'successful';
+
+type Props = {
+  saved: Invoice[];
+  search: string;
+  setSearch: (v: string) => void;
+  onNew: () => void;
+  onOpen: (id: string) => void;
+  onPreview: (id: string) => void;
+  onDelete: (id: string) => void;
+};
+
+export function Invoices({ saved, search, setSearch, onNew, onOpen, onPreview, onDelete }: Props) {
+  const [status, setStatus] = React.useState<StatusFilter>('all');
+
+  const list = saved.filter((x) => {
+    const matchesSearch = `${x.meta.invoiceNo} ${x.buyer.name} ${x.consignee.name}`
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    const matchesStatus =
+      status === 'all' ||
+      (status === 'pending' && x.paymentStatus === 'Pending') ||
+      (status === 'successful' && x.paymentStatus === 'Successful');
+    return matchesSearch && matchesStatus;
+  });
+
+  return (
+    <section className="page">
+      <div className="page-title">
+        <div>
+          <p className="eyebrow">CLOUD INVOICE REGISTER</p>
+          <h1>Saved Bills</h1>
+        </div>
+        <button className="primary" onClick={onNew}>＋ New Bill</button>
+      </div>
+
+      <div className="toolbar">
+        <input
+          placeholder="Search invoice or customer…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select value={status} onChange={(e) => setStatus(e.target.value as StatusFilter)}>
+          <option value="all">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="successful">Successful</option>
+        </select>
+      </div>
+
+      {list.length === 0 ? (
+        <div className="empty">No matching bills.</div>
+      ) : (
+        <div className="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {list.map((x) => (
+                <tr key={x.id}>
+                  <td><b>{x.meta.invoiceNo}</b></td>
+                  <td>{dateDisplay(x.meta.date)}</td>
+                  <td>{x.buyer.name || x.consignee.name || '—'}</td>
+                  <td>{x.mode === 'GST' ? 'GST' : 'Non-GST'}</td>
+                  <td><span className={`status ${x.paymentStatus.toLowerCase()}`}>{x.paymentStatus}</span></td>
+                  <td>₹ {money(calc(x).grand)}</td>
+                  <td>
+                    <button className="primary table-action" onClick={() => onPreview(x.id)}>Open</button>
+                    <button className="table-action" onClick={() => onOpen(x.id)}>Edit</button>
+                    <button className="danger table-action" onClick={() => onDelete(x.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}

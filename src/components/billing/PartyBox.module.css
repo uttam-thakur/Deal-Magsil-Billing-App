@@ -1,0 +1,18 @@
+.party { background: #fff; border: 1px solid #dce3e7; border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+.section-title { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; padding: 11px 13px; background: #f4f7f8; border-bottom: 1px solid #e1e6e9; }
+.party-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.same-check { display: flex; align-items: center; gap: 7px; text-transform: none; letter-spacing: 0; font-size: 11px; font-weight: 800; color: #31515d; cursor: pointer; }
+.same-check input { width: 15px; height: 15px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; padding: 8px 13px; }
+.full { grid-column: 1 / -1; }
+.linked-party .grid2 { opacity: .72; pointer-events: none; }
+.linked-party .grid2 input, .linked-party .grid2 textarea, .linked-party .grid2 select { background: #f3f6f7; cursor: not-allowed; }
+.party-actions { display: flex; align-items: center; gap: 12px; padding: 0 13px 13px; }
+.save-mini { margin: 0; border: 0; background: #edf3f5; color: #164252; padding: 7px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+.same-note { font-size: 10px; color: #60747d; font-weight: 700; }
+@media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } .full { grid-column: auto; } }
+.field { display: flex; flex-direction: column; gap: 5px; margin: 9px 0; }
+.field span { font-size: 10px; font-weight: 800; color: #63717b; text-transform: uppercase; letter-spacing: .03em; }
+.field input, .field textarea, .field select { width: 100%; border: 1px solid #d6dee3; border-radius: 6px; padding: 8px 9px; background: #fff; outline: none; }
+.field textarea { min-height: 60px; resize: vertical; }
+.linked-party{font-size:9px;color:#52756b}
